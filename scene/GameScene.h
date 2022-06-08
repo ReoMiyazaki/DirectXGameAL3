@@ -34,6 +34,7 @@ public: // メンバ関数
 	/// </summary>
 	void Initialize();
 
+	
 	/// <summary>
 	/// 毎フレーム処理
 	/// </summary>
@@ -43,6 +44,10 @@ public: // メンバ関数
 	/// 描画
 	/// </summary>
 	void Draw();
+
+	// Afin関数
+	void Afin(WorldTransform worldTramsform_);
+
 
 private: // メンバ変数
 	DirectXCommon* dxCommon_ = nullptr;
@@ -62,6 +67,8 @@ private: // メンバ変数
 
 	// デバックカメラ
 	DebugCamera* debugCamera_ = nullptr;
+
+	const float PI = 3.1415f;
 
 	/// <summary>
 	/// ゲームシーン用
