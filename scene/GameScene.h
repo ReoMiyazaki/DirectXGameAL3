@@ -63,9 +63,6 @@ private: // メンバ変数
 	// デバックカメラ
 	DebugCamera* debugCamera_ = nullptr;
 
-	const float PI = 3.1415f;
-
-
 	/// <summary>
 	/// ゲームシーン用
 	/// </summary>
