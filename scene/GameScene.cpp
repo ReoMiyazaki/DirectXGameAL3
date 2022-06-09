@@ -4,6 +4,7 @@
 #include "TextureManager.h"
 #include <cassert>
 #include <math.h>
+#include "affine/affine.h"
 
 GameScene::GameScene() {}
 
@@ -37,6 +38,22 @@ void GameScene::Initialize() {
 	AxisIndicator::GetInstance()->SetVisible(true);
 	// 軸方向表示が参照するビュープロジェクションを初期化する
 	AxisIndicator::GetInstance()->SetTargetViewProjection(&debugCamera_->GetViewProjection());
+
+	// スケーリング行列の宣言
+	Matrix4 matScale;
+	// 各軸用回転行列を宣言
+	Matrix4 matRotX, matRotY, matRotZ;
+	// 平行移動行列を宣言
+	Matrix4 matTrans;
+
+
+#pragma region スケーリング
+	// X, Y, Z方向の設定
+	worldTransform_.scale_ = { 5.0f,5.0f,5.0f };
+
+	affine::setScaleMat(matScale, worldTransform_);
+	affine::generatScaleMat(worldTransform_);
+	
 
 	Afin(worldTransform_);
 }
@@ -97,8 +114,8 @@ void GameScene::Draw() {
 
 void GameScene::Afin(WorldTransform worldTransform_) {
 
-	// スケーリング行列の宣言
-	Matrix4 matScale;
+	//// スケーリング行列の宣言
+	//Matrix4 matScale;
 	// 各軸用回転行列を宣言
 	Matrix4 matRotX, matRotY, matRotZ;
 	// 平行移動行列を宣言
@@ -106,19 +123,19 @@ void GameScene::Afin(WorldTransform worldTransform_) {
 
 
 #pragma region スケーリング
-	// X, Y, Z方向の設定
-	worldTransform_.scale_ = { 5.0f,5.0f,5.0f };
-	// スケーリング行列を宣言
-	matScale = {
-		1.0f, 0.0f, 0.0f, 0.0f,
-		0.0f, 1.0f, 0.0f, 0.0f,
-		0.0f, 0.0f, 1.0f, 0.0f,
-		0.0f, 0.0f, 0.0f, 1.0f,
-	};
-	// スケーリング倍率を行列に設定する
-	matScale.m[0][0] = worldTransform_.scale_.x;
-	matScale.m[1][1] = worldTransform_.scale_.y;
-	matScale.m[2][2] = worldTransform_.scale_.z;
+	//// X, Y, Z方向の設定
+	//worldTransform_.scale_ = { 5.0f,5.0f,5.0f };
+	//// スケーリング行列を宣言
+	//matScale = {
+	//	1.0f, 0.0f, 0.0f, 0.0f,
+	//	0.0f, 1.0f, 0.0f, 0.0f,
+	//	0.0f, 0.0f, 1.0f, 0.0f,
+	//	0.0f, 0.0f, 0.0f, 1.0f,
+	//};
+	//// スケーリング倍率を行列に設定する
+	//matScale.m[0][0] = worldTransform_.scale_.x;
+	//matScale.m[1][1] = worldTransform_.scale_.y;
+	//matScale.m[2][2] = worldTransform_.scale_.z;
 #pragma endregion
 
 #pragma region ローテイション
@@ -167,18 +184,18 @@ void GameScene::Afin(WorldTransform worldTransform_) {
 #pragma region トランスレイション
 	// X, Y, Z軸周りの平行移動を設定
 	worldTransform_.translation_ = { 10.0f,10.f,10.0f };
-	// 平行移動行列を宣言
-	matTrans = MathUtility::Matrix4Identity();
-	// 移動量を行列に設定
-	matTrans = {
-		1.0f, 0.0f, 0.0f, 0.0f,
-		0.0f, 1.0f, 0.0f, 0.0f,
-		0.0f, 0.0f, 1.0f, 0.0f,
-		0.0f, 0.0f, 0.0f, 1.0f
-	};
-	matTrans.m[3][0] = worldTransform_.translation_.x;
-	matTrans.m[3][1] = worldTransform_.translation_.y;
-	matTrans.m[3][2] = worldTransform_.translation_.z;
+	//// 平行移動行列を宣言
+	//matTrans = MathUtility::Matrix4Identity();
+	//// 移動量を行列に設定
+	//matTrans = {
+	//	1.0f, 0.0f, 0.0f, 0.0f,
+	//	0.0f, 1.0f, 0.0f, 0.0f,
+	//	0.0f, 0.0f, 1.0f, 0.0f,
+	//	0.0f, 0.0f, 0.0f, 1.0f
+	//};
+	//matTrans.m[3][0] = worldTransform_.translation_.x;
+	//matTrans.m[3][1] = worldTransform_.translation_.y;
+	//matTrans.m[3][2] = worldTransform_.translation_.z;
 #pragma endregion
 
 	//単位行列を代入
@@ -190,7 +207,7 @@ void GameScene::Afin(WorldTransform worldTransform_) {
 	};
 
 	// 掛け算して代入
-	worldTransform_.matWorld_ *= matScale;
+	worldtransform_.matworld_ *= matscale;
 	worldTransform_.matWorld_ *= matRotZ;
 	worldTransform_.matWorld_ *= matRotX;
 	worldTransform_.matWorld_ *= matRotY;
