@@ -61,7 +61,7 @@ private: // メンバ変数
 	Model* model_ = nullptr;
 
 	// ワールドトランスフォーム
-	WorldTransform worldTransform_;
+	WorldTransform worldTransforms_[100];
 	// ビュープロジェクション
 	ViewProjection viewProjection_;
 
@@ -69,6 +69,9 @@ private: // メンバ変数
 	DebugCamera* debugCamera_ = nullptr;
 
 	const float PI = 3.1415f;
+
+	// カメラ上方向の角度
+	float viewAngle = 0.0f;
 
 	/// <summary>
 	/// ゲームシーン用
