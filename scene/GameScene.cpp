@@ -50,8 +50,7 @@ void GameScene::Initialize() {
 	AxisIndicator::GetInstance()->SetVisible(true);
 	// 軸方向表示が参照するビュープロジェクションを初期化する
 	AxisIndicator::GetInstance()->SetTargetViewProjection(&viewProjection_);
-
-
+  
 }
 
 void GameScene::Update() {
@@ -185,6 +184,7 @@ void GameScene::Draw() {
 
 void GameScene::Afin(WorldTransform worldTransform_) {
 
+
 	// 乱数シード生成器
 	std::random_device seed_gen;;
 	// メルセンヌ・ツイスターの乱数エンジン
@@ -202,6 +202,7 @@ void GameScene::Afin(WorldTransform worldTransform_) {
 
 
 #pragma region スケーリング
+
 	// X, Y, Z方向の設定
 	worldTransform_.scale_ = { 1.0f,1.0f,1.0f };
 	// スケーリング行列を宣言
@@ -262,6 +263,7 @@ void GameScene::Afin(WorldTransform worldTransform_) {
 
 #pragma region トランスレイション
 	// X, Y, Z軸周りの平行移動を設定
+
 	worldTransform_.translation_ = { trans(engin),trans(engin) ,trans(engin) };
 	// 平行移動行列を宣言
 	matTrans = MathUtility::Matrix4Identity();
@@ -286,7 +288,7 @@ void GameScene::Afin(WorldTransform worldTransform_) {
 	};
 
 	// 掛け算して代入
-	worldTransform_.matWorld_ *= matScale;
+	worldtransform_.matworld_ *= matscale;
 	worldTransform_.matWorld_ *= matRotZ;
 	worldTransform_.matWorld_ *= matRotX;
 	worldTransform_.matWorld_ *= matRotY;
