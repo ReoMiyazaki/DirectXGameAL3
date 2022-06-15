@@ -18,4 +18,6 @@ Matrix4 affine::generatScaleMat(WorldTransform& worldTransform) {
 	matScale.m[1][1] = worldTransform.scale_.y;
 	matScale.m[2][2] = worldTransform.scale_.z;
 
+	return matScale;
+
 }
