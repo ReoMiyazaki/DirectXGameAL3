@@ -68,7 +68,7 @@ private: // メンバ変数
 	// デバックカメラ
 	DebugCamera* debugCamera_ = nullptr;
 
-	const float PI = 3.1415f;
+	const float XM_PI = 3.1415f;
 
 	// カメラ上方向の角度
 	float viewAngle = 0.0f;
