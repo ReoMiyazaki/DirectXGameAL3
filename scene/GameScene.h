@@ -18,6 +18,22 @@
 /// </summary>
 class GameScene {
 
+public: // メンバ変数
+// パーツID
+	enum PartId {
+		kRoot,	// 大元
+		kSpine,	// 脊髄
+		kChest,	// 胸
+		kHead,	// 頭
+		kArmL,	// 左腕
+		kArmR,	// 右腕
+		kHip,	// 尻
+		kLegL,	// 左足
+		kLegR,	// 右足
+
+		kNumPartId
+	};
+
 public: // メンバ関数
   /// <summary>
   /// コンストクラタ
@@ -34,7 +50,7 @@ public: // メンバ関数
 	/// </summary>
 	void Initialize();
 
-	
+
 	/// <summary>
 	/// 毎フレーム処理
 	/// </summary>
@@ -44,9 +60,6 @@ public: // メンバ関数
 	/// 描画
 	/// </summary>
 	void Draw();
-
-	// Afin関数
-	void Afin(WorldTransform worldTramsform_);
 
 
 private: // メンバ変数
@@ -61,7 +74,7 @@ private: // メンバ変数
 	Model* model_ = nullptr;
 
 	// ワールドトランスフォーム
-	WorldTransform worldTransforms_[100];
+	WorldTransform worldTransforms_[kNumPartId];
 	// ビュープロジェクション
 	ViewProjection viewProjection_;
 
