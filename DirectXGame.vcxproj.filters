@@ -55,6 +55,12 @@
     <Filter Include="ヘッダー ファイル\affine">
       <UniqueIdentifier>{ec2e5a7b-c721-44a1-bebe-b8ed3cf7f951}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\MyFunct">
+      <UniqueIdentifier>{7c909788-1d6e-4f09-9ea6-42cb3b5ecb54}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\MyFunc">
+      <UniqueIdentifier>{4359e53b-da92-4bed-b6b9-98569cfa41e7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -72,8 +78,11 @@
     <ClCompile Include="scene\GameScene.cpp">
       <Filter>ソース ファイル\scene</Filter>
     </ClCompile>
-    <ClCompile Include="affine\affine.cpp">
+    <ClCompile Include="affine\affin.cpp">
       <Filter>ソース ファイル\affine</Filter>
+    </ClCompile>
+    <ClCompile Include="MyFunc\MyFunct.cpp">
+      <Filter>ソース ファイル\MyFunct</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -158,8 +167,11 @@
     <ClInclude Include="3d\PrimitiveDrawer.h">
       <Filter>ヘッダー ファイル\3d</Filter>
     </ClInclude>
-    <ClInclude Include="affine\affine.h">
+    <ClInclude Include="affine\affin.h">
       <Filter>ヘッダー ファイル\affine</Filter>
+    </ClInclude>
+    <ClInclude Include="MyFunc\MyFunc.h">
+      <Filter>ヘッダー ファイル\MyFunc</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
