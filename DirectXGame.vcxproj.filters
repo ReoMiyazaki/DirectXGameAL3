@@ -61,6 +61,12 @@
     <Filter Include="ヘッダー ファイル\MyFunc">
       <UniqueIdentifier>{4359e53b-da92-4bed-b6b9-98569cfa41e7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Player">
+      <UniqueIdentifier>{17d4e92d-537c-468f-aa62-f4efdfac5589}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Player">
+      <UniqueIdentifier>{2d2a553d-304c-49ec-ad1a-7f4ee72f142f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -83,6 +89,9 @@
     </ClCompile>
     <ClCompile Include="MyFunc\MyFunct.cpp">
       <Filter>ソース ファイル\MyFunct</Filter>
+    </ClCompile>
+    <ClCompile Include="Player\Player.cpp">
+      <Filter>ソース ファイル\Player</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -172,6 +181,9 @@
     </ClInclude>
     <ClInclude Include="MyFunc\MyFunc.h">
       <Filter>ヘッダー ファイル\MyFunc</Filter>
+    </ClInclude>
+    <ClInclude Include="Player\Player.h">
+      <Filter>ヘッダー ファイル\Player</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

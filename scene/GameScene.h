@@ -6,6 +6,7 @@
 #include "DirectXCommon.h"
 #include "Input.h"
 #include "Model.h"
+#include "Player/Player.h"
 #include "SafeDelete.h"
 #include "Sprite.h"
 #include "ViewProjection.h"
@@ -17,22 +18,6 @@
 /// ゲームシーン
 /// </summary>
 class GameScene {
-
-public: // メンバ変数
-// パーツID
-	enum PartId {
-		kRoot,	// 大元
-		kSpine,	// 脊髄
-		kChest,	// 胸
-		kHead,	// 頭
-		kArmL,	// 左腕
-		kArmR,	// 右腕
-		kHip,	// 尻
-		kLegL,	// 左足
-		kLegR,	// 右足
-
-		kNumPartId
-	};
 
 public: // メンバ関数
   /// <summary>
@@ -63,6 +48,11 @@ public: // メンバ関数
 
 
 private: // メンバ変数
+
+	/// <summary>
+	/// ゲームシーン用
+	/// </summary>
+
 	DirectXCommon* dxCommon_ = nullptr;
 	Input* input_ = nullptr;
 	Audio* audio_ = nullptr;
@@ -73,20 +63,21 @@ private: // メンバ変数
 	// 3Dモデル
 	Model* model_ = nullptr;
 
-	// ワールドトランスフォーム
-	WorldTransform worldTransforms_[kNumPartId];
 	// ビュープロジェクション
 	ViewProjection viewProjection_;
 
 	// デバックカメラ
 	DebugCamera* debugCamera_ = nullptr;
 
+	// デバックカメラ有効
+	bool isDebugCameraActive_ = false;
+
 	const float XM_PI = 3.1415f;
 
 	// カメラ上方向の角度
 	float viewAngle = 0.0f;
 
-	/// <summary>
-	/// ゲームシーン用
-	/// </summary>
+	// 自キャラ用
+	Player* player_ = nullptr;
+
 };
